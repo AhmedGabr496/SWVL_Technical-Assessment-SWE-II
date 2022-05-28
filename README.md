@@ -1,5 +1,5 @@
-# QA Automation Role TechnicalTask , Test Automation scripts built in BDD Style
-A test automation technical assesment project ,that automates  UI TCS for MusalaSoft WebSite
+# SWVL_Technical-Assessment-SWE-II, 
+A test automation technical assesment project ,that automates  UI TC for SWVL WebSite
 
 ### Tools & Technolgies :
 * Java

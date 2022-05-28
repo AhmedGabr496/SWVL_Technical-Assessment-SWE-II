@@ -1,4 +1,4 @@
-# SWVL_Technical-Assessment-SWE-II, 
+# SWVL_Technical-Assessment-SWE-II
 A test automation technical assesment project ,that automates  UI TC for SWVL WebSite
 
 ### Tools & Technolgies :

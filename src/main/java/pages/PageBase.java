@@ -24,32 +24,38 @@ public class PageBase {
 
     /*****************************************************/
 
+    //Accepts page cookies pop up
     public void acceptPageCookies() {
         ElementActions.click(AcceptCookiesButton);
     }
 
+    // Search & select the Departure City
     public void searchDepartureCity(String DepartureCity) {
         ElementActions.click(DepartureDropDown);
         ElementActions.typeText(DepartureDropDown, DepartureCity);
         ElementActions.clickEnterKey(DepartureDropDown);
     }
 
+    // Search & select the Arrival City
     public void searchArrivalCity(String ArrivalCity) {
         ElementActions.click(ArrivalCityDropDown);
         ElementActions.typeText(ArrivalCityDropDown, ArrivalCity);
         ElementActions.clickEnterKey(ArrivalCityDropDown);
     }
 
+    // Add Passengers to the ride
     public void addPassengers(int numberOfPassengers) {
         for (int i = 1; i <= numberOfPassengers; i++) {
             ElementActions.click(AddPassengersButton);
         }
     }
 
+    // Click on search button
     public void clickSearchButton() {
         ElementActions.click(SearchButton);
     }
 
+    // Selects Tomorrow's Date form the Date Picker
     public void selectTomorrowDate() {
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DAY_OF_YEAR, 1);
@@ -63,10 +69,12 @@ public class PageBase {
         ElementActions.click(By.xpath("//div[contains(@aria-label,'" + TomorrowMonth + " " + TomorrowDay + "')]"));
     }
 
+    // Chooses the first trip in the list
     public void chooseFirstTrip() {
         ElementActions.click(FirstTripButton);
     }
 
+    // Verify landing on the contact details page successfully
     public void VerifyNavigationToContactDetailsPage() {
         ElementActions.waitUnitElementDisplayed(ContactDetailsPageHeader);
         Assert.assertEquals(BrowserActions.getCurrentURL(), ConfigUtil.getProperty("ContactDetailsPageURL"));

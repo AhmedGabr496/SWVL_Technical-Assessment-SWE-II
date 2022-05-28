@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Technical Assessment - SWE II" parallel="none">
+    <parameter name="Departure" value="cairo"/>
+    <parameter name="Arrival" value="alexandria"/>
+    <test name="Chrome-Test">
+        <classes>
+            <class name="tests.TaskTest"/>
+        </classes>
+    </test>
+
+
+</suite>

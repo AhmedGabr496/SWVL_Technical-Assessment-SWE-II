@@ -14,7 +14,6 @@ import java.util.concurrent.TimeUnit;
 public class TestBase {
 
     //For Initialize the Driver
-
     public static WebDriver driver;
     public void StartDriver(String browserName) throws IOException {
         System.out.printf("Browser Type = " + browserName);

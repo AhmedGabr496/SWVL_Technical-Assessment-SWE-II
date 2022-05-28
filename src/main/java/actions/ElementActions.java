@@ -10,31 +10,32 @@ import utilities.TestBase;
 
 public class ElementActions extends TestBase {
 
+    // Initialize  the Web Elements
     private static WebElement initiateElement(By locator) {
         return driver.findElement(locator);
     }
-    public static void selectByValueDropDown(By element , String value){
-        Select select = new Select(initiateElement(element));
-        select.selectByValue(value);
-    }
-
+    // Clicks on the selected element
     public static void click(By element) {
         initiateElement(element).click();
     }
 
+    // Type text in the text fields
     public static void typeText(By element, String text) {
         initiateElement(element).sendKeys(text);
     }
 
+    // Click keyboard enter key
     public static void clickEnterKey(By element) {
         initiateElement(element).sendKeys(Keys.ENTER);
 
     }
 
+    // Get Text of an element
     public static String getText(By element) {
         return initiateElement(element).getText();
     }
 
+    // Explicit wait until element is visible on the UI
     public static void waitUnitElementDisplayed(By element) {
         WebDriverWait wait = new WebDriverWait(driver,30);
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));

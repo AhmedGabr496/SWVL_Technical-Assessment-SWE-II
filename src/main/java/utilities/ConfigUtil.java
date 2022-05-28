@@ -8,6 +8,7 @@ public class ConfigUtil {
     private static final String CONFIG_PROPERTIES_FILE_PATH = "src/main/resources/config.properties";
     private static Properties pro;
 
+    // Loads & Get Values from Properties file
  public static String getProperty (String Key){
      try {
          fileInputStream = new FileInputStream(CONFIG_PROPERTIES_FILE_PATH);

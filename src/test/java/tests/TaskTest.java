@@ -1,46 +1,28 @@
 package tests;
 
 import actions.BrowserActions;
-import actions.ElementActions;
 import jdk.jfr.Description;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.PageBase;
 import utilities.ConfigUtil;
 import utilities.TestBase;
 
-import java.io.IOException;
 
 public class TaskTest extends TestBase {
     PageBase pageBase = new PageBase();
-    @Test
+    @Test (priority = 1)
     @Description("Search Suggestions")
-    public void checkOnSearchSuggestion() throws IOException, InterruptedException {
-        //Navigate to Travel Page
-        BrowserActions.navigateTo(ConfigUtil.getProperty("BaseURL"));
-
-        //Accept Page Cookies
-        pageBase.acceptPageCookies();
-
-        //Select Departure City
-        pageBase.searchDepartureCity("cairo");
-
-        //Select Arrival City
-        pageBase.searchArrivalCity("alexandria");
-
-        //Select Number Of Passengers
-        pageBase.addPassengers(2);
-
-        //Select Date
-        pageBase.selectTomorrowDate();
-
-        //Search for Rides
-        pageBase.clickSearchButton();
-
-        //Choose First Trip
-        pageBase.chooseFirstTrip();
-
-        //Validate Contact details page opened successfully
-        pageBase.VerifyNavigationToContactDetailsPage();
-
+    @Parameters({"Departure","Arrival"})
+    public void checkOnSearchSuggestion(String Departure , String Arrival) {
+        BrowserActions.navigateTo(ConfigUtil.getProperty("BaseURL"));         //Navigate to Travel Page
+        pageBase.acceptPageCookies();                                        //Accept Page Cookies
+        pageBase.searchDepartureCity(Departure);                              //Select Departure City
+        pageBase.searchArrivalCity(Arrival);                                //Select Arrival City
+        pageBase.addPassengers(2);                        //Select Number Of Passengers
+        pageBase.selectTomorrowDate();                                   //Select Tomorrow Date
+        pageBase.clickSearchButton();                                   //Search for Rides
+        pageBase.chooseFirstTrip();                                    //Choose First Trip
+        pageBase.VerifyNavigationToContactDetailsPage();              //Validate Contact details page opened successfully
     }
 }

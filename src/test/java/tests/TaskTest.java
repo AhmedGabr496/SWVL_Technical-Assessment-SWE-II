@@ -22,6 +22,7 @@ public class TaskTest extends TestBase {
         pageBase.addPassengers(2);                        //Select Number Of Passengers
         pageBase.selectTomorrowDate();                                   //Select Tomorrow Date
         pageBase.clickSearchButton();                                   //Search for Rides
+        pageBase.validateSearchResults(Departure,Arrival);
         pageBase.chooseFirstTrip();                                    //Choose First Trip
         pageBase.VerifyNavigationToContactDetailsPage();              //Validate Contact details page opened successfully
     }

@@ -5,8 +5,11 @@ import actions.ElementActions;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 import utilities.ConfigUtil;
+
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
+
 public class PageBase {
 
 
@@ -21,6 +24,9 @@ public class PageBase {
     private static final By NextMonthButton = By.xpath("//button[contains(text(),'Next Month')]");
     private static final By FirstTripButton = By.xpath("(//Button[contains(text(),'Choose Trip')])[1]");
     private static final By ContactDetailsPageHeader = By.xpath("//h2[contains(text(),'Contact Details')]");
+    private static final By DepartureCityCard = By.xpath("//*[@data-testid='trip-card-from-city']");
+    private static final By ArrivalCityCard = By.xpath("//*[@data-testid='trip-card-to-city']");
+
 
     /*****************************************************/
 
@@ -78,5 +84,15 @@ public class PageBase {
     public void VerifyNavigationToContactDetailsPage() {
         ElementActions.waitUnitElementDisplayed(ContactDetailsPageHeader);
         Assert.assertEquals(BrowserActions.getCurrentURL(), ConfigUtil.getProperty("ContactDetailsPageURL"));
+    }
+
+    // validate Search Results
+    public void validateSearchResults(String departure, String arrival) {
+        List<WebElement> DepartureElements = ElementActions.getElements(DepartureCityCard);
+        List<WebElement> ArrivalElements = ElementActions.getElements(ArrivalCityCard);
+        for (int i = 0; i < DepartureElements.size(); i++){
+            Assert.assertEquals(DepartureElements.get(i).getText(),departure);
+            Assert.assertEquals(ArrivalElements.get(i).getText(),arrival);
+        }
     }
 }

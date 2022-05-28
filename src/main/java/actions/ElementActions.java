@@ -8,6 +8,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.TestBase;
 
+import java.util.List;
+
 public class ElementActions extends TestBase {
 
     // Initialize  the Web Elements
@@ -39,5 +41,9 @@ public class ElementActions extends TestBase {
     public static void waitUnitElementDisplayed(By element) {
         WebDriverWait wait = new WebDriverWait(driver,30);
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+    }
+
+    public static List<WebElement> getElements(By element) {
+        return driver.findElements(element);
     }
 }
